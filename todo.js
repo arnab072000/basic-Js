@@ -1,34 +1,28 @@
-let todoName = document.getElementById('full-name');
 let inputItem = document.getElementById('add-todo');
 let listContainer = document.getElementById('list-container');
 
 function addTodo() {
-    //let name = todoName.value;
-    let todoValue = inputItem.value;
-    console.log(name); 
+    let todoValue = inputItem.value; 
     console.log(todoValue); 
-    if(todoValue !== ''){
+    if(todoValue === '' || (!isNaN(todoValue))) {
+        alert('write some text ...!')
+    } else {
         createList(todoValue);
         inputItem.value = '';
-        // todoName.value="";
-    } else {
-        alert('write some text ...!')
     }
 }
 
 function createList(value) {
     const li = document.createElement('li');
-    li.innerHTML = value;
+    li.innerHTML= `<input type="checkbox">
+    <label>
+        ${value}
+    </label>`;
     listContainer.appendChild(li);
 }
-// function nameOfTodo(value){
-//     let todoList = document.getElementById("list");
-//     let h3 = document.createElement("h3");
-//     h3.innerHTML = value;
-//     todoList.appendChild(h3);
-// }
 
-function clearTodo(){
+
+function clearTodo() {
     listContainer.innerHTML='';
 }
 

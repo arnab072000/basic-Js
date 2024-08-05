@@ -9,31 +9,21 @@
 <body>
     <div class="container">
         <div class="todo-app">
-            <h1>TODO LIST</h1>
+            <h1>TO-DO-LIST</h1>
             <div class="todo-Container">
-                <label for="full-name">Name:</label>
-                <input type="text" id="full-name"><br><br>
                 <div class="input-Todo">
                     <label for="add-todo">Add Todo:</label>
-                    <input type="text" id="add-todo" placeholder="write Todo">
+                    <input type="text" id="add-todo" placeholder="Write Todo">
                     <button onclick="addTodo()">Add</buton>
                 </div>
-                <!-- <label for="add-todo">Add Todo:</label>
-                <input type="text" id="add-totdo" placeholder="write Todo">
-                <button onclick="addTodo()">Add</buton> -->
             </div>
-            <!-- <label for="full-name">Name:</label>
-            <input type="text" id="full-name"><br><br>
-            <label for="add-todo">Add Todo:</label>
-            <input type="text" id="add-totdo" placeholder="write Todo">
-            <button onclick="addTodo()">Add</buton> -->
             <br>
             <div id="list">
                 <ul id="list-container">
                 <!-- <li>1</li>
                 <li>1</li> -->
                 </ul>
-                <button onclick="clearTodo()">Clear</button>
+                <button class="clear-button" onclick="clearTodo()">Clear</button>
             </div>
         </div>
     </div>
