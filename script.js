@@ -118,3 +118,12 @@
 // function weatherUpdate(){
     
 // }
+
+
+// function Person(name) {
+//     this.name = name;
+//     this.age = 21;
+//   }
+//   var object = new Person("Arnab");
+
+  
