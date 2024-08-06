@@ -24,6 +24,10 @@ function createList(value) {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'deleteTodo';
+    deleteButton.onclick = function() {
+        listContainer.removeChild(li);
+        saveTodo();
+    };
     li.appendChild(deleteButton);
 
     listContainer.appendChild(li);
