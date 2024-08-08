@@ -1,6 +1,9 @@
 const inputItem = document.getElementById('add-todo');
 const listContainer = document.getElementById('list-container');
 
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+
 loadTodos();
 
 function addTodo() {
@@ -9,11 +12,16 @@ function addTodo() {
     if (todoValue === '' || (!isNaN(todoValue))) {
         alert('write some text ...!')
     } else {
+        todos.push(todoValue);
+        // localStorage.setItem('todos', JSON.stringify(todos));
         createList(todoValue);
         inputItem.value = '';
         saveTodo();
     }
 }
+
+//console.log(todos);
+
 
 function createList(value) {
     const li = document.createElement('li');
@@ -25,6 +33,9 @@ function createList(value) {
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'deleteTodo';
     deleteButton.onclick = function() {
+        todos = todos.filter(todo => todo !== value);
+        // localStorage.setItem('todos', JSON.stringify(todos));
+        // console.log(li.innerText.replace('Delete', '').trim());
         listContainer.removeChild(li);
         saveTodo();
     };
@@ -36,13 +47,21 @@ function createList(value) {
 // deleteButton.addEventListner('click', function() {
 //     listContainer.removeChild(li);
 // });
+// let listSelector =  listContainer.querySelectorAll('li');
+// console.log(listSelector);
+
+// function saveTodo() {
+//     let todos = [];
+//     listContainer.querySelectorAll('li').forEach(function(item) {
+//         todos.push(item.innerText.replace('Delete', '').trim());
+//     });
+//      localStorage.setItem('todos', JSON.stringify(todos));
+// }
+
+//new saveTodo function  
 
 function saveTodo() {
-    let todos = [];
-    listContainer.querySelectorAll('li').forEach(function(item) {
-        todos.push(item.innerText.replace('Delete', '').trim());
-    });
-    localStorage.setItem('todos', JSON.stringify(todos));
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 function loadTodos() {
